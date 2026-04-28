@@ -1,4 +1,4 @@
-package com.company.inventory.Inventory.response;
+package com.company.inventory.Inventory.api.response;
 
 
 import java.util.ArrayList;

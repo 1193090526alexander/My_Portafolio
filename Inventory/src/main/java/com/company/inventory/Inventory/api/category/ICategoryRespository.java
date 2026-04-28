@@ -1,6 +1,6 @@
-package com.company.inventory.Inventory.repository.category;
+package com.company.inventory.Inventory.api.category;
 
-import com.company.inventory.Inventory.model.CategoryEntity;
+import com.company.inventory.Inventory.api.model.CategoryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ICategoryRespository extends JpaRepository<CategoryEntity,Integer> {

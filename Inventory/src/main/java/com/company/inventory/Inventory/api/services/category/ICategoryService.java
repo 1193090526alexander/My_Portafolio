@@ -1,7 +1,7 @@
-package com.company.inventory.Inventory.services.category;
+package com.company.inventory.Inventory.api.services.category;
 
-import com.company.inventory.Inventory.model.CategoryEntity;
-import com.company.inventory.Inventory.response.category.CategoryResposeRest;
+import com.company.inventory.Inventory.api.model.CategoryEntity;
+import com.company.inventory.Inventory.api.response.category.CategoryResposeRest;
 import org.springframework.http.ResponseEntity;
 
 public interface ICategoryService {

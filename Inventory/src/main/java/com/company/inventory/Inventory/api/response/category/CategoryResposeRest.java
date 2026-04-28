@@ -1,6 +1,6 @@
-package com.company.inventory.Inventory.response.category;
+package com.company.inventory.Inventory.api.response.category;
 
-import com.company.inventory.Inventory.response.ResponseRest;
+import com.company.inventory.Inventory.api.response.ResponseRest;
 import lombok.Getter;
 import lombok.Setter;
 
