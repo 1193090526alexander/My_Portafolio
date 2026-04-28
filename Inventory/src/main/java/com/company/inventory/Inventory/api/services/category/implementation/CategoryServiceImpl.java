@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -51,7 +52,27 @@ public class CategoryServiceImpl implements ICategoryService {
     }
 
     @Override
+    @Transactional
     public ResponseEntity<CategoryResposeRest> saveCategory(CategoryEntity category) {
-        return null;
+        CategoryResposeRest categoryResposeRest = new CategoryResposeRest();
+        List<CategoryEntity> listCategoryEntities =  new ArrayList<>();
+        try {
+            CategoryEntity categoryEntity = categoryRespository.save(category);
+            if(categoryEntity != null) {
+                listCategoryEntities.add(categoryEntity);
+                categoryResposeRest.getCategoryResponse().setCategory(listCategoryEntities);
+                categoryResposeRest.setMetadata("Respuesta ok", "00", "Respuesta exitosa");
+            }
+            else {
+                categoryResposeRest.setMetadata("Respuesta nok", "-1", "Categoria no gurdada");
+                return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.BAD_REQUEST);
+            }
+        }
+        catch (Exception e) {
+            categoryResposeRest.setMetadata("Respuesta nok", "-1", "Error al gurdar la categoria");
+            e.getStackTrace();
+            return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
     }
 }
