@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee8fecd4-13d7-4342-ad7c-71ded50d5de3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/controller/category/categoryRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/services/category/implementation/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/services/category/implementation/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/category/ICategoryRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/repository/ICategoryRespository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/category/categoryRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +72,15 @@
   }
 }</component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration name="InventoryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="Inventory" />
@@ -91,6 +99,7 @@
       <updated>1777267224909</updated>
       <workItem from="1777267225966" duration="5566000" />
       <workItem from="1777309028009" duration="5861000" />
+      <workItem from="1777350475071" duration="351000" />
     </task>
     <servers />
   </component>
