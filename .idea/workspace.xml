@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee8fecd4-13d7-4342-ad7c-71ded50d5de3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/category/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/category/ICategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/category/implementation/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/category/implementation/CategoryServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +59,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.InventoryApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feacture/my-9-crear-servicio-para-gurdar-categorias",
-    "git-widget-placeholder": "feacture/my-8-crear-servicio-para-obtener-las-categorias-por-id",
+    "git-widget-placeholder": "feacture/my-10-crear-servicio-para-actulizar-categorias",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/helme/Documents/My_Portafolio",
