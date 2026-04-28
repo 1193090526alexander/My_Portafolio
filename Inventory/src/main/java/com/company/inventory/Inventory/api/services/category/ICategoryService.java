@@ -15,4 +15,5 @@ public interface ICategoryService {
     public ResponseEntity<CategoryResposeRest> deleteCategoria(Integer id);
 
     public ResponseEntity<CategoryResposeRest> saveCategory(CategoryEntity category);
+    public ResponseEntity<CategoryResposeRest> updateCategory(CategoryEntity category, Integer id);
 }
