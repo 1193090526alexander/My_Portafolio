@@ -34,4 +34,10 @@ public class categoryRestController {
         ResponseEntity<CategoryResposeRest> responseEntity = categoryService.findById(id);
         return responseEntity;
     }
+
+    @DeleteMapping("/categories/{id}")
+    public ResponseEntity<CategoryResposeRest>  deleteCategoryById(@PathVariable Integer id){
+        ResponseEntity<CategoryResposeRest> responseEntity = categoryService.deleteCategoria(id);
+        return responseEntity;
+    }
 }

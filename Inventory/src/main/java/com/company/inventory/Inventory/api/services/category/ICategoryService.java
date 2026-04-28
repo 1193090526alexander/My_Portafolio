@@ -12,7 +12,7 @@ public interface ICategoryService {
 
     public ResponseEntity<CategoryResposeRest> findById(Integer id);
 
-    public ResponseEntity<CategoryResposeRest> deleteCategoria(CategoryEntity category);
+    public ResponseEntity<CategoryResposeRest> deleteCategoria(Integer id);
 
     public ResponseEntity<CategoryResposeRest> saveCategory(CategoryEntity category);
 }
