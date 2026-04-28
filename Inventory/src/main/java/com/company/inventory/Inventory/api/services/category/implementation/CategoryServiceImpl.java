@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements ICategoryService {
@@ -42,7 +44,26 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Override
     public ResponseEntity<CategoryResposeRest> findById(Integer id) {
-        return null;
+        CategoryResposeRest categoryResposeRest = new CategoryResposeRest();
+        List<CategoryEntity> listCategoryEntities = new ArrayList<>();
+        try {
+            Optional<CategoryEntity> categoryEntity = categoryRespository.findById(id);
+            if (categoryEntity.isPresent()) {
+                listCategoryEntities.add(categoryEntity.get());
+                categoryResposeRest.getCategoryResponse().setCategory(listCategoryEntities);
+                categoryResposeRest.setMetadata("Respuesta ok", "00", "Respuesta exitosa");
+            }
+            else {
+                categoryResposeRest.setMetadata("Respuesta nok", "-1", "Categoria no encontrada");
+                return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+        catch (Exception e) {
+            categoryResposeRest.setMetadata("Respuesta nok", "-1", "Error al consultar por id");
+            e.getStackTrace();
+            return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
     }
 
     @Override
