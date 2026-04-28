@@ -25,8 +25,10 @@ public class categoryRestController {
     }
 
     @PostMapping("/categories")
-    public ResponseEntity<CategoryResposeRest>  addCategory(@RequestBody CategoryEntity category){
+    public ResponseEntity<CategoryResposeRest>  addCategory(@RequestBody CategoryEntity category) {
         ResponseEntity<CategoryResposeRest> responseEntity = categoryService.saveCategory(category);
+        return responseEntity;
+    }
     @GetMapping("/categories/{id}")
     public ResponseEntity<CategoryResposeRest>  searchCategory(@PathVariable Integer id){
         ResponseEntity<CategoryResposeRest> responseEntity = categoryService.findById(id);
