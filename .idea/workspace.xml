@@ -60,6 +60,7 @@
     "Spring Boot.InventoryApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "feacture/my-9-crear-servicio-para-gurdar-categorias",
+    "git-widget-placeholder": "feacture/my-8-crear-servicio-para-obtener-las-categorias-por-id",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/helme/Documents/My_Portafolio",
@@ -72,6 +73,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\helme\Documents\My_Portafolio\Inventory\src\main\java\com\company\inventory\Inventory\api\controller" />
+      <recent name="C:\Users\helme\Documents\My_Portafolio\Inventory\src\main\java\com\company\inventory\Inventory\api\repository" />
+      <recent name="C:\Users\helme\Documents\My_Portafolio\Inventory\src\main\java\com\company\inventory\Inventory\api" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -100,7 +108,7 @@
       <updated>1777267224909</updated>
       <workItem from="1777267225966" duration="5566000" />
       <workItem from="1777309028009" duration="5861000" />
-      <workItem from="1777350475071" duration="351000" />
+      <workItem from="1777350475071" duration="1488000" />
     </task>
     <servers />
   </component>
