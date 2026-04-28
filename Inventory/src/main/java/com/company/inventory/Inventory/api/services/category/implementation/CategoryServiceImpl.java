@@ -106,4 +106,40 @@ public class CategoryServiceImpl implements ICategoryService {
         }
         return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
     }
+
+    @Override
+    @Transactional
+    public ResponseEntity<CategoryResposeRest> updateCategory(CategoryEntity category, Integer id) {
+        CategoryResposeRest categoryResposeRest = new CategoryResposeRest();
+        List<CategoryEntity> listCategoryEntities =  new ArrayList<>();
+        try {
+
+            Optional<CategoryEntity> categoryEntitySerch = categoryRespository.findById(id);
+            if (categoryEntitySerch.isPresent()) {
+                categoryEntitySerch.get().setName(category.getName());
+                categoryEntitySerch.get().setDescription(category.getDescription());
+
+                CategoryEntity categoryEntityUpdate = categoryRespository.save(categoryEntitySerch.get());
+                if(categoryEntityUpdate!=null) {
+                    listCategoryEntities.add(categoryEntityUpdate);
+                    categoryResposeRest.getCategoryResponse().setCategory(listCategoryEntities);
+                    categoryResposeRest.setMetadata("Respuesta ok", "00", "Categoria Actulizada");
+                }
+                else {
+                    categoryResposeRest.setMetadata("Respuesta nok", "-1", "Categoria no actulizada");
+                    return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.BAD_REQUEST);
+                }
+            }
+            else {
+                categoryResposeRest.setMetadata("Respuesta nok", "-1", "Categoria no encontrada");
+                return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.NOT_FOUND);
+            }
+        }
+        catch (Exception e) {
+            categoryResposeRest.setMetadata("Respuesta nok", "-1", "Error al gurdar la categoria");
+            e.getStackTrace();
+            return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
+    }
 }
