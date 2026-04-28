@@ -1,4 +1,4 @@
-package com.company.inventory.Inventory.model;
+package com.company.inventory.Inventory.api.model;
 
 import jakarta.persistence.*;
 import lombok.*;
