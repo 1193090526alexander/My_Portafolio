@@ -3,7 +3,6 @@ package com.company.inventory.Inventory.api.services.product.implementation;
 import com.company.inventory.Inventory.api.model.CategoryEntity;
 import com.company.inventory.Inventory.api.model.ProductEntity;
 import com.company.inventory.Inventory.api.repository.IProductoRepository;
-import com.company.inventory.Inventory.api.response.category.CategoryResposeRest;
 import com.company.inventory.Inventory.api.response.product.ProductoResponseRest;
 import com.company.inventory.Inventory.api.services.product.IProductService;
 import com.company.inventory.Inventory.api.util.Util;
@@ -11,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -153,7 +153,48 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public ResponseEntity<ProductoResponseRest> updateProduct(ProductEntity product, Long id) {
-        return null;
+    @Transactional
+    public ResponseEntity<ProductoResponseRest> updateProduct(ProductEntity product, Integer categoryId ,Long id) {
+        ProductoResponseRest response = new ProductoResponseRest();
+        List<ProductEntity> productEntities = new ArrayList<>();
+        try {
+            Optional<CategoryEntity> category = categoryRespository.findById(categoryId);
+
+            if (category.isPresent()) {
+                product.setCategory(category.get());
+            } else {
+                response.setMetadata("Response nok", "-1","Categoria no encontrada");
+                return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.NOT_FOUND);
+            }
+            Optional<ProductEntity> productEntity = repository.findById(id);
+            if (productEntity != null) {
+                productEntity.get().setQuantity(product.getQuantity());
+                productEntity.get().setPrice(product.getPrice());
+                productEntity.get().setCategory(category.get());
+                productEntity.get().setPicture(product.getPicture());
+                productEntity.get().setName(product.getName());
+
+                ProductEntity productEntityToSave = repository.save(productEntity.get());
+
+                if (productEntityToSave != null) {
+                    productEntities.add(productEntity.get());
+                    response.getProducto().setProductEntities(productEntities);
+                    response.setMetadata("Resgistro producto guardado", "00","Producto guardado");
+                }else {
+                    response.setMetadata("Response nok", "-1","Producto noa actulizado");
+                    return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.BAD_REQUEST);
+                }
+
+            }else {
+                response.setMetadata("Response nok", "-1","No se logro actualizar");
+                return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.NOT_FOUND);
+            }
+
+        }catch (Exception e) {
+            response.setMetadata("Respuesta nok", "-1", "Error al gurdar el producto");
+            e.getStackTrace();
+            return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.OK);
     }
 }
