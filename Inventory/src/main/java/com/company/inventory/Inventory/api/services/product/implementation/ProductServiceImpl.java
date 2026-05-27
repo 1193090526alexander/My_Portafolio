@@ -3,7 +3,6 @@ package com.company.inventory.Inventory.api.services.product.implementation;
 import com.company.inventory.Inventory.api.model.CategoryEntity;
 import com.company.inventory.Inventory.api.model.ProductEntity;
 import com.company.inventory.Inventory.api.repository.IProductoRepository;
-import com.company.inventory.Inventory.api.response.category.CategoryResposeRest;
 import com.company.inventory.Inventory.api.response.product.ProductoResponseRest;
 import com.company.inventory.Inventory.api.services.product.IProductService;
 import com.company.inventory.Inventory.api.util.Util;
@@ -32,7 +31,30 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public ResponseEntity<ProductoResponseRest> findByNameProduct(String name) {
-        return null;
+        ProductoResponseRest response = new ProductoResponseRest();
+        List<ProductEntity> list = new ArrayList<>();
+        List<ProductEntity> listAux = new ArrayList<>();
+        try {
+            listAux = repository.findByNameContainingIgnoreCase(name);
+            if (listAux.size()>0) {
+                listAux.stream().forEach((p) -> {
+                    byte[] imagenDescompressed = Util.decompressZLib(p.getPicture());
+                    p.setPicture(imagenDescompressed);
+                    list.add(p);
+                });
+
+                response.getProducto().setProductEntities(list);
+                response.setMetadata("Respuesta ok", "00", "Respuesta exitosa");
+            }else {
+                response.setMetadata("Respuesta nok", "-1", "Producto no encontrados");
+                return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.BAD_REQUEST);
+            }
+        }catch (Exception e) {
+            response.setMetadata("Respuesta nok", "-1", "Error al consultar por nombre");
+            e.getStackTrace();
+            return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.OK);
     }
 
     @Override
