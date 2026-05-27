@@ -1,0 +1,81 @@
+package com.company.inventory.Inventory.api.services.product.implementation;
+
+import com.company.inventory.Inventory.api.model.CategoryEntity;
+import com.company.inventory.Inventory.api.model.ProductEntity;
+import com.company.inventory.Inventory.api.repository.IProductoRepository;
+import com.company.inventory.Inventory.api.response.product.ProductoResponseRest;
+import com.company.inventory.Inventory.api.services.product.IProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class ProductServiceImpl implements IProductService {
+
+    @Autowired
+    private IProductoRepository repository;
+
+    @Autowired
+    private com.company.inventory.Inventory.api.category.ICategoryRespository categoryRespository;
+
+    @Override
+    public ResponseEntity<ProductoResponseRest> serch() {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<ProductoResponseRest> findByNameProduct(String name) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<ProductoResponseRest> findById(Long id) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<ProductoResponseRest> deleteProduct(Long id) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<ProductoResponseRest> saveProduct(ProductEntity product, Integer idcategory) {
+        ProductoResponseRest response = new ProductoResponseRest();
+        List<ProductEntity> productEntities = new ArrayList<>();
+        try {
+            Optional<CategoryEntity> category = categoryRespository.findById(idcategory);
+            if (category.isPresent()) {
+                product.setCategory(category.get());
+            } else {
+                response.setMetadata("Response nok", "-1","Categoria no encontrada");
+                return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.NOT_FOUND);
+            }
+
+            ProductEntity productEntity = repository.save(product);
+            if (productEntity != null) {
+                productEntities.add(productEntity);
+                response.getProducto().setProductEntities(productEntities);
+                response.setMetadata("Resgistro producto guardado", "00","Producto guardado");
+            }else {
+                response.setMetadata("Response nok", "-1","No se logro gurdar producto");
+                return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.NOT_FOUND);
+            }
+
+        }catch (Exception e) {
+            response.setMetadata("Respuesta nok", "-1", "Error al gurdar el producto");
+            e.getStackTrace();
+            return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<ProductoResponseRest> updateProduct(ProductEntity product, Long id) {
+        return null;
+    }
+}
