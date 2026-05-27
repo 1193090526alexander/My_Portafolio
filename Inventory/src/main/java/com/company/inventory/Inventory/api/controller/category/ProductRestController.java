@@ -63,4 +63,22 @@ public class ProductRestController {
         ResponseEntity<ProductoResponseRest> responseEntity = productService.serch();
         return responseEntity;
     }
+
+
+    @PutMapping("/products/{id}")
+    public ResponseEntity<ProductoResponseRest> updateProduct(
+            @RequestParam("picture") MultipartFile picture,
+            @RequestParam("name") String name,
+            @RequestParam("price") Double price,
+            @RequestParam("quantity") Integer quantity,
+            @RequestParam("category") Integer category,
+            @PathVariable Long id) throws IOException {
+        ProductEntity productEntity = new ProductEntity();
+        productEntity.setName(name);
+        productEntity.setPrice(price);
+        productEntity.setQuantity(quantity);
+        productEntity.setPicture(Util.compressZLib(picture.getBytes()));
+        ResponseEntity<ProductoResponseRest> response = productService.updateProduct(productEntity, category, id);
+        return response;
+    }
 }

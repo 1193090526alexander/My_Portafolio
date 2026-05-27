@@ -135,6 +135,7 @@ public class CategoryServiceImpl implements ICategoryService {
         try {
 
             Optional<CategoryEntity> categoryEntitySerch = categoryRespository.findById(id);
+
             if (categoryEntitySerch.isPresent()) {
                 categoryEntitySerch.get().setName(category.getName());
                 categoryEntitySerch.get().setDescription(category.getDescription());

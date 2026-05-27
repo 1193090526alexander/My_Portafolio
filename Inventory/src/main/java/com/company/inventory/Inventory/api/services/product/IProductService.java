@@ -11,5 +11,5 @@ public interface IProductService {
     ResponseEntity<ProductoResponseRest> findById(Long id);
     ResponseEntity<ProductoResponseRest> deleteProduct(Long id);
     ResponseEntity<ProductoResponseRest> saveProduct(ProductEntity product, Integer idcategory);
-    ResponseEntity<ProductoResponseRest> updateProduct(ProductEntity product, Long id);
+    ResponseEntity<ProductoResponseRest> updateProduct(ProductEntity product,Integer categoryId, Long id);
 }
