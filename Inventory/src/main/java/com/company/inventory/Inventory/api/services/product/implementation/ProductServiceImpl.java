@@ -3,8 +3,10 @@ package com.company.inventory.Inventory.api.services.product.implementation;
 import com.company.inventory.Inventory.api.model.CategoryEntity;
 import com.company.inventory.Inventory.api.model.ProductEntity;
 import com.company.inventory.Inventory.api.repository.IProductoRepository;
+import com.company.inventory.Inventory.api.response.category.CategoryResposeRest;
 import com.company.inventory.Inventory.api.response.product.ProductoResponseRest;
 import com.company.inventory.Inventory.api.services.product.IProductService;
+import com.company.inventory.Inventory.api.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +37,27 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public ResponseEntity<ProductoResponseRest> findById(Long id) {
-        return null;
+        ProductoResponseRest response = new ProductoResponseRest();
+        List<ProductEntity> list = new ArrayList<>();
+        try {
+            Optional<ProductEntity> optional = repository.findById(id);
+            if (optional.isPresent()) {
+                byte[] imagenDescompressed = Util.decompressZLib(optional.get().getPicture());
+                optional.get().setPicture(imagenDescompressed);
+                list.add(optional.get());
+                response.getProducto().setProductEntities(list);
+                response.setMetadata("Respuesta ok", "00", "Respuesta exitosa");
+            }else {
+                response.setMetadata("Respuesta nok", "-1", "Producto no encontrado");
+                return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.BAD_REQUEST);
+            }
+        }catch (Exception e) {
+            response.setMetadata("Respuesta nok", "-1", "Error al consultar por id");
+            e.getStackTrace();
+            return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.OK);
+
     }
 
     @Override

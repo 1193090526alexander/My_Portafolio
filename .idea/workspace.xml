@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee8fecd4-13d7-4342-ad7c-71ded50d5de3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/model/ProductEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/repository/IProductoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/response/product/ProductoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/response/product/ProductoResponseRest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/product/IProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/product/implementation/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/product/implementation/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/product/implementation/ProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +61,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.InventoryApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feacture/my-18-crear-servicio-de-producto",
+    "git-widget-placeholder": "feacture/my-19-crear-servicio-para-obtener-prosductos",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/helme/Documents/My_Portafolio",
@@ -135,114 +127,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java</url>
-          <line>38</line>
-          <properties class="com.company.inventory.Inventory.api.controller.category.categoryRestController" method="searchCategory">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java</url>
-          <line>26</line>
-          <properties class="com.company.inventory.Inventory.api.controller.category.ProductRestController" method="saveProduct">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
