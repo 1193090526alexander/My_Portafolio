@@ -38,9 +38,29 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Override
     @Transactional(readOnly = true)
-    public ResponseEntity<CategoryResposeRest> findByName(String name) {
-        return null;
+    public ResponseEntity<CategoryResposeRest> findByNamecategory(String name) {
+        CategoryResposeRest categoryResposeRest = new CategoryResposeRest();
+        List<CategoryEntity> listCategoryEntities = new ArrayList<>();
+        try {
+            Optional<CategoryEntity> categoryEntity = categoryRespository.findByNameContainingIgnoreCase(name);
+            if (categoryEntity.isPresent()) {
+                listCategoryEntities.add(categoryEntity.get());
+                categoryResposeRest.getCategoryResponse().setCategory(listCategoryEntities);
+                categoryResposeRest.setMetadata("Respuesta ok", "00", "Respuesta exitosa");
+            }
+            else {
+                categoryResposeRest.setMetadata("Respuesta nok", "-1", "Categoria no encontrada");
+                return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+        catch (Exception e) {
+            categoryResposeRest.setMetadata("Respuesta nok", "-1", "Error al consultar por id");
+            e.getStackTrace();
+            return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
     }
+
 
     @Override
     public ResponseEntity<CategoryResposeRest> findById(Integer id) {

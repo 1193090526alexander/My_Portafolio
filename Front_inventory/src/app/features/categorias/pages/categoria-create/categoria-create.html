@@ -1,5 +1,80 @@
-<h1>Crear categoría</h1>
+<form [formGroup]="categoryForm" (ngSubmit)="guardar()">
 
-<a routerLink="/categorias">
-  Volver
-</a>
+  <h2 mat-dialog-title>
+
+    {{estadoFormulario }} nueva Categoría
+
+  </h2>
+
+  <mat-dialog-content>
+
+    <mat-form-field appearance="fill" class="campo">
+
+      <mat-label>Nombre</mat-label>
+
+      <input
+        matInput
+        formControlName="name">
+
+      @if(categoryForm.get('name')?.invalid &&
+      categoryForm.get('name')?.touched){
+
+        <mat-error>
+
+          El nombre es obligatorio
+
+        </mat-error>
+
+      }
+
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="campo">
+
+      <mat-label>Descripción</mat-label>
+
+      <textarea
+        matInput
+        rows="3"
+        formControlName="description">
+      </textarea>
+
+      @if(categoryForm.get('description')?.invalid &&
+      categoryForm.get('description')?.touched){
+
+        <mat-error>
+
+          La descripción es obligatoria
+
+        </mat-error>
+
+      }
+
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+
+    <button
+      mat-button
+      type="button"
+      (click)="cerrar()">
+
+      Cancelar
+
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="guardando">
+
+      Guardar
+
+    </button>
+
+  </mat-dialog-actions>
+
+</form>

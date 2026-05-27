@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>
+  Confirmacion
+</h2>
+
+<mat-dialog-content>
+
+  <p>¿Estas seguro que deseas eliminar el regitro?</p>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+  <button
+    mat-button
+    type="button"
+    (click)="cancelar()">
+
+    Cancelar
+
+  </button>
+
+  <button
+    mat-raised-button
+    color="warn"
+    type="button"
+    (click)="confirmar()" cdkFocusInitial>
+
+    Confirmar
+
+  </button>
+
+</mat-dialog-actions>

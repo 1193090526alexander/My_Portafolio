@@ -17,4 +17,30 @@ export class CategoriaService {
     const endpoint = `${base_url}/categories`;
     return this.http.get(endpoint)
   }
+
+
+
+  saveCategoria(body: any){
+    const endpoint = `${base_url}/categories`;
+    return this.http.post(endpoint, body);
+
+  }
+
+
+  updateCategoria(body: any, idcategory: any){
+    const endpoint = `${base_url}/categories/${idcategory}`
+    return this.http.put(endpoint, body);
+  }
+
+  deleteCategoria(idcategory: any){
+    const endpoint = `${base_url}/categories/${idcategory}`
+    return this.http.delete(endpoint);
+  }
+
+
+getcategoriasByName(name: any){
+  const endpoint = `${base_url}/categories/name/${name}`
+    return this.http.get(endpoint);
+}
+
 }

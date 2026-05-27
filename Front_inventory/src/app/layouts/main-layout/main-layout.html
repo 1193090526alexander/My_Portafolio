@@ -30,8 +30,8 @@
   <mat-sidenav
     #drawer
     class="sidenav"
-    [mode]="isMobile ? 'over' : 'side'"
-    [opened]="!isMobile">
+    [mode]="sidenavMode"
+    [opened]="sidenavOpened">
 
     <app-sidenav></app-sidenav>
 

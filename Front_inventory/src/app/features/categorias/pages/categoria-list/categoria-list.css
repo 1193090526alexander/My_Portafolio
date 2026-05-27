@@ -1,0 +1,63 @@
+.contenedor {
+  padding: 24px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.buscador {
+  width: 320px;
+}
+
+.tabla-contenedor {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  font-weight: 700;
+  color: #333;
+  background: #fafafa;
+}
+
+td,
+th {
+  padding: 12px;
+}
+
+button mat-icon {
+  font-size: 20px;
+  color: lightcoral;
+}
+
+@media (max-width: 768px) {
+  .barra-superior {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .buscador {
+    width: 100%;
+  }
+
+  .tabla-contenedor {
+    overflow-x: auto;
+  }
+}

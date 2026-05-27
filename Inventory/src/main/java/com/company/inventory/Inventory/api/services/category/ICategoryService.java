@@ -6,14 +6,10 @@ import org.springframework.http.ResponseEntity;
 
 public interface ICategoryService {
 
-    public ResponseEntity<CategoryResposeRest> serch();
-
-    public ResponseEntity<CategoryResposeRest> findByName(String name);
-
-    public ResponseEntity<CategoryResposeRest> findById(Integer id);
-
-    public ResponseEntity<CategoryResposeRest> deleteCategoria(Integer id);
-
-    public ResponseEntity<CategoryResposeRest> saveCategory(CategoryEntity category);
-    public ResponseEntity<CategoryResposeRest> updateCategory(CategoryEntity category, Integer id);
+     ResponseEntity<CategoryResposeRest> serch();
+     ResponseEntity<CategoryResposeRest> findByNamecategory(String name);
+     ResponseEntity<CategoryResposeRest> findById(Integer id);
+     ResponseEntity<CategoryResposeRest> deleteCategoria(Integer id);
+     ResponseEntity<CategoryResposeRest> saveCategory(CategoryEntity category);
+     ResponseEntity<CategoryResposeRest> updateCategory(CategoryEntity category, Integer id);
 }
