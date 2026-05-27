@@ -57,4 +57,10 @@ public class ProductRestController {
         ResponseEntity<ProductoResponseRest> responseEntity = productService.deleteProduct(id);
         return responseEntity;
     }
+
+    @GetMapping("/product")
+    public ResponseEntity<ProductoResponseRest>  searchCategory(){
+        ResponseEntity<ProductoResponseRest> responseEntity = productService.serch();
+        return responseEntity;
+    }
 }

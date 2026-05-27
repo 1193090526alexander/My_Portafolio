@@ -27,7 +27,30 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public ResponseEntity<ProductoResponseRest> serch() {
-        return null;
+        ProductoResponseRest response = new ProductoResponseRest();
+        List<ProductEntity> list = new ArrayList<>();
+        List<ProductEntity> listAux = new ArrayList<>();
+        try {
+            listAux = (List<ProductEntity>) repository.findAll();
+            if(listAux.size()>0){
+                listAux.stream().forEach((p) -> {
+                    byte[] imagenDescompressed = Util.decompressZLib(p.getPicture());
+                    p.setPicture(imagenDescompressed);
+                    list.add(p);
+                });
+                response.getProducto().setProductEntities(list);
+                response.setMetadata("Respuesta ok", "00", "Respuesta exitosa");
+            }else {
+                response.setMetadata("Respuesta nok", "-1", "Producto no encontrados");
+                return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.BAD_REQUEST);
+            }
+        }catch (Exception e) {
+            response.setMetadata("Respuesta nok", "-1", "Error al consultar los productos");
+            e.getStackTrace();
+            return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<ProductoResponseRest>(response, HttpStatus.OK);
+
     }
 
     @Override
