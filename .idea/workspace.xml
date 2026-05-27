@@ -6,19 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ee8fecd4-13d7-4342-ad7c-71ded50d5de3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/core/services/categoria.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/core/services/categoria.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-create/categoria-create.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-create/categoria-create.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-create/categoria-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-create/categoria-create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-create/categoria-create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-create/categoria-create.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-list/categoria-list.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-list/categoria-list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-list/categoria-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-list/categoria-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-list/categoria-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/features/categorias/pages/categoria-list/categoria-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/layouts/main-layout/main-layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/layouts/main-layout/main-layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front_inventory/src/app/layouts/main-layout/main-layout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front_inventory/src/app/layouts/main-layout/main-layout.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/repository/ICategoryRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/repository/ICategoryRespository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/category/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/category/ICategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/category/implementation/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/category/implementation/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/ProductRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/repository/IProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/repository/IProductoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/product/implementation/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/services/product/implementation/ProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +63,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.InventoryApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feacture/my-23-obtener-por-nombre",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/helme/Documents/My_Portafolio",
@@ -139,35 +129,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Inventory/src/main/java/com/company/inventory/Inventory/api/controller/category/categoryRestController.java</url>
-          <line>38</line>
-          <properties class="com.company.inventory.Inventory.api.controller.category.categoryRestController" method="searchCategory">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
