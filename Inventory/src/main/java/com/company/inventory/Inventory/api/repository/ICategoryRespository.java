@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface ICategoryRespository extends JpaRepository<CategoryEntity,Integer> {
     Optional<CategoryEntity> findByNameContainingIgnoreCase(String name);
+    boolean existsByNameContainingIgnoreCase(String name);
 }

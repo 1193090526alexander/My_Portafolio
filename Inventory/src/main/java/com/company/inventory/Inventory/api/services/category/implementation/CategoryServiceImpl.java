@@ -4,6 +4,7 @@ import com.company.inventory.Inventory.api.model.CategoryEntity;
 import com.company.inventory.Inventory.api.category.ICategoryRespository;
 import com.company.inventory.Inventory.api.response.category.CategoryResposeRest;
 import com.company.inventory.Inventory.api.services.category.ICategoryService;
+import com.company.inventory.Inventory.api.util.validator.CategoryValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,9 @@ public class CategoryServiceImpl implements ICategoryService {
 
     @Autowired
     private ICategoryRespository categoryRespository;
+
+    @Autowired
+    private CategoryValidator categoryValidator;
 
     @Override
     public ResponseEntity<CategoryResposeRest> serch() {
@@ -86,81 +90,7 @@ public class CategoryServiceImpl implements ICategoryService {
         return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
     }
 
-    @Override
-    public ResponseEntity<CategoryResposeRest> deleteCategoria(Integer id) {
-        CategoryResposeRest categoryResposeRest = new CategoryResposeRest();
-        try {
-            categoryRespository.deleteById(id);
-            categoryResposeRest.setMetadata("Respuesta ok", "00", "Categoria Eliminada");
-        }
-        catch (Exception e) {
-            categoryResposeRest.setMetadata("Respuesta nok", "-1", "Error al gurdar la categoria");
-            e.getStackTrace();
-            return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
-    }
 
 
-    @Override
-    @Transactional
-    public ResponseEntity<CategoryResposeRest> saveCategory(CategoryEntity category) {
-        CategoryResposeRest categoryResposeRest = new CategoryResposeRest();
-        List<CategoryEntity> listCategoryEntities =  new ArrayList<>();
-        try {
-            CategoryEntity categoryEntity = categoryRespository.save(category);
-            if(categoryEntity != null) {
-                listCategoryEntities.add(categoryEntity);
-                categoryResposeRest.getCategoryResponse().setCategory(listCategoryEntities);
-                categoryResposeRest.setMetadata("Respuesta ok", "00", "Respuesta exitosa");
-            }
-            else {
-                categoryResposeRest.setMetadata("Respuesta nok", "-1", "Categoria no gurdada");
-                return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.BAD_REQUEST);
-            }
-        }
-        catch (Exception e) {
-            categoryResposeRest.setMetadata("Respuesta nok", "-1", "Error al gurdar la categoria");
-            e.getStackTrace();
-            return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
-    }
 
-    @Override
-    @Transactional
-    public ResponseEntity<CategoryResposeRest> updateCategory(CategoryEntity category, Integer id) {
-        CategoryResposeRest categoryResposeRest = new CategoryResposeRest();
-        List<CategoryEntity> listCategoryEntities =  new ArrayList<>();
-        try {
-
-            Optional<CategoryEntity> categoryEntitySerch = categoryRespository.findById(id);
-
-            if (categoryEntitySerch.isPresent()) {
-                categoryEntitySerch.get().setName(category.getName());
-                categoryEntitySerch.get().setDescription(category.getDescription());
-
-                CategoryEntity categoryEntityUpdate = categoryRespository.save(categoryEntitySerch.get());
-                if(categoryEntityUpdate!=null) {
-                    listCategoryEntities.add(categoryEntityUpdate);
-                    categoryResposeRest.getCategoryResponse().setCategory(listCategoryEntities);
-                    categoryResposeRest.setMetadata("Respuesta ok", "00", "Categoria Actulizada");
-                }
-                else {
-                    categoryResposeRest.setMetadata("Respuesta nok", "-1", "Categoria no actulizada");
-                    return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.BAD_REQUEST);
-                }
-            }
-            else {
-                categoryResposeRest.setMetadata("Respuesta nok", "-1", "Categoria no encontrada");
-                return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.NOT_FOUND);
-            }
-        }
-        catch (Exception e) {
-            categoryResposeRest.setMetadata("Respuesta nok", "-1", "Error al gurdar la categoria");
-            e.getStackTrace();
-            return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return new ResponseEntity<CategoryResposeRest>(categoryResposeRest, HttpStatus.OK);
-    }
 }

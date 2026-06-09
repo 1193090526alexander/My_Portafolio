@@ -13,26 +13,16 @@ export class ConfirmDialog implements OnInit{
 
    constructor(
     private dialogRef: MatDialogRef<ConfirmDialog>,
-    private categoriaService: CategoriaService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: { titulo: string; mensaje: string }
   ) {}
-  ngOnInit(): void {
-  }
+
+  ngOnInit(): void {}
 
   cancelar(): void {
-    this.dialogRef.close(3);
+    this.dialogRef.close(false); // Retorna false si cancela
   }
 
   confirmar(): void {
-    if(this.data != null){
-      this.categoriaService.deleteCategoria(this.data.idcategory).subscribe( (data: any) =>{
-        this.dialogRef.close(1);
-      },(error:any)=>{
-        this.dialogRef.close(2);
-      }
-    )
-  }else{
-    this.dialogRef.close(2);
+    this.dialogRef.close(true); // Retorna true si confirma
   }
-}
 }

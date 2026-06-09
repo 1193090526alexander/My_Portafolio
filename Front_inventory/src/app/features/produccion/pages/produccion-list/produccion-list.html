@@ -1,0 +1,97 @@
+
+ <div class="contenedor">
+
+  <h2>Listado de Categorías</h2>
+
+  <div class="barra-superior">
+
+    <mat-form-field appearance="fill" class="buscador">
+      <mat-label>Buscar Produstos</mat-label>
+
+      <input
+        matInput
+        placeholder="Busque por nombre o id del producto" #input
+        (keyup)="buscarProduct($event)">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="openProdcutDialog()">
+    Agregar prodcuto
+  </button>
+
+  </div>
+
+  <div class="tabla-contenedor mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let   product">
+          {{ product.id }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let product">
+          {{ product.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Categoria</th>
+        <td mat-cell *matCellDef="let product">
+          {{ product.category.name }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>precio</th>
+        <td mat-cell *matCellDef="let product">
+          {{ product.price }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="picture">
+        <th mat-header-cell *matHeaderCellDef>foto</th>
+        <td mat-cell *matCellDef="let product">
+          @if (product.picture && product.picture !== '') {
+      <img [src]="product.picture" alt="Producto" width="50px" height="50px" style="object-fit: cover; border-radius: 4px;">
+    } @else {
+      <mat-icon style="color: #9e9e9e;">image_not_supported</mat-icon>
+    }
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>cantidad</th>
+        <td mat-cell *matCellDef="let product">
+            
+          {{ product.quantity }}
+        </td>
+      </ng-container>
+      
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+
+        <td mat-cell *matCellDef="let product" >
+          <button mat-icon-button color="primary"
+            (click)="edit(product.id, product.name, product.category, product.price, product.quantity, product.picture )">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="primary"
+          (click)="delete(product.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+  </div>
+
+</div>

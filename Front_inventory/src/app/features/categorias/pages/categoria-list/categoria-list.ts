@@ -114,27 +114,27 @@ export class CategoriaList implements OnInit {
   }
 
 
-  delete(idcategory: any) {
-  console.log('ID A ELIMINAR:', idcategory);
+  deleteCategoria(idcategory: any) {
   const dialogRef = this.dialog.open(ConfirmDialog, {
     width: '400px',
     data: {
-      idcategory: idcategory
+      titulo: 'Eliminar Categoría',
+      mensaje: '¿Está seguro de que desea eliminar esta categoría?'
     }
   });
-  dialogRef.afterClosed().subscribe((result: any) => {
 
-    if (result == 1 ) {
-            this.openSnackBar('Categoría eliminada', 'Exitosa');
-            this.getCategorias();
-          }else if (result ==2){
-       
-            this.openSnackBar('Error al eliminar', 'Error');
-   
-        }
-        });
-
+  dialogRef.afterClosed().subscribe((confirmado: boolean) => {
+    if (confirmado === true) {
+      this.categoriaService.deleteCategoria(idcategory).subscribe({
+        next: () => {
+          this.openSnackBar('Categoría eliminada con éxito', 'Exitosa');
+          this.getCategorias(); // Método para refrescar categorías
+        },
+        error: (err) => this.openSnackBar('Error al eliminar', 'Error')
+      });
     }
+  });
+}
     buscarCategoria(event: Event): void {
 
   const name = (event.target as HTMLInputElement).value.trim();

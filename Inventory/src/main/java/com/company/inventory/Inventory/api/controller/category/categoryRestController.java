@@ -25,11 +25,6 @@ public class categoryRestController {
         return responseEntity;
     }
 
-    @PostMapping("/categories")
-    public ResponseEntity<CategoryResposeRest>  addCategory(@RequestBody CategoryEntity category) {
-        ResponseEntity<CategoryResposeRest> responseEntity = categoryService.saveCategory(category);
-        return responseEntity;
-    }
     @GetMapping("/categories/{id}")
     public ResponseEntity<CategoryResposeRest>  searchCategory(@PathVariable Integer id){
         ResponseEntity<CategoryResposeRest> responseEntity = categoryService.findById(id);
@@ -41,14 +36,5 @@ public class categoryRestController {
         return responseEntity;
     }
 
-    @DeleteMapping("/categories/{id}")
-    public ResponseEntity<CategoryResposeRest>  deleteCategoryById(@PathVariable Integer id) {
-        ResponseEntity<CategoryResposeRest> responseEntity = categoryService.deleteCategoria(id);
-        return responseEntity;
-    }
-    @PutMapping("/categories/{id}")
-    public ResponseEntity<CategoryResposeRest>  updateCategory(@PathVariable Integer id, @RequestBody CategoryEntity category) {
-        ResponseEntity<CategoryResposeRest> response = categoryService.updateCategory(category, id );
-        return response;
-    }
+
 }

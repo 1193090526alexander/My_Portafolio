@@ -1,0 +1,96 @@
+<form [formGroup]="prodcutForm" (ngSubmit)="guardar()">
+
+  <h2 mat-dialog-title>
+    {{ estadoFormulario }} Producto
+  </h2>
+
+  <mat-dialog-content>
+
+    <mat-form-field appearance="fill" class="campo">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+      
+      @if(prodcutForm.get('name')?.invalid && prodcutForm.get('name')?.touched){
+        <mat-error>El nombre es obligatorio</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="campo">
+      <mat-label>Precio</mat-label>
+      <input matInput type="number" formControlName="price">
+
+      @if(prodcutForm.get('price')?.invalid && prodcutForm.get('price')?.touched){
+        <mat-error>El precio es obligatorio</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="campo">
+      <mat-label>Cantidad</mat-label>
+      <input matInput type="number" formControlName="quantity">
+
+      @if(prodcutForm.get('quantity')?.invalid && prodcutForm.get('quantity')?.touched){
+        <mat-error>La cantidad es obligatoria</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="campo">
+      <mat-label>Categoría</mat-label>
+      <mat-select formControlName="category">
+        <mat-option value="">Seleccione una categoría</mat-option>
+        @for (category of categories; track category.name) {
+          <mat-option [value]="category.idcategory">{{ category.name }}</mat-option>
+        }
+      </mat-select>
+
+      @if(prodcutForm.get('category')?.invalid && prodcutForm.get('category')?.touched){
+        <mat-error>Debe seleccionar una categoría</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="campo campo-imagen">
+      <label class="etiqueta-imagen">Imagen del producto</label>
+      
+      <input
+        type="file"
+        #fileInput
+        style="display: none"
+        accept="image/png,image/jpeg,image/jpg"
+        (change)="onFileSelected($event)">
+
+      <button 
+        mat-stroked-button 
+        color="accent" 
+        type="button" 
+        (click)="fileInput.click()">
+        <mat-icon>cloud_upload</mat-icon>
+        Seleccionar Imagen
+      </button>
+    </div>
+
+    @if(imagePreview){
+      <div class="preview-container">
+        <img 
+          [src]="imagePreview" 
+          alt="Vista previa" 
+          class="imagen-preview">
+      </div>
+    }
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="cerrar()">
+      Cancelar
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="guardar()"
+      [disabled]="guardando">
+      Guardar
+    </button>
+  </mat-dialog-actions>
+
+</form>

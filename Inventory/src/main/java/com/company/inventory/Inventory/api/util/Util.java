@@ -7,7 +7,7 @@ import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
 public class Util {
-    // compress the image bytes before storing it in the database
+    // compress the i       mage bytes before storing it in the database
     public static byte[] compressZLib(byte[] data) {
         Deflater deflater = new Deflater();
         deflater.setInput(data);

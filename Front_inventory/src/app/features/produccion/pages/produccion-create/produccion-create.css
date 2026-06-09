@@ -1,0 +1,45 @@
+/* Estilos generales para los campos */
+.campo {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+/* Contenedor del grupo de carga de imagen */
+.campo-imagen {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Estilo para la etiqueta superior de la imagen */
+.etiqueta-imagen {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+
+/* Contenedor de la vista previa de la imagen (Flexbox Centrado) */
+.preview-container {
+  display: flex;            
+  justify-content: center;  
+  align-items: center;      
+  margin-top: 15px;         
+  margin-bottom: 15px;      
+  padding: 10px;
+  border: 1px dashed #ccc; 
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+/* Estilo para que la imagen mantenga su proporción perfecta sin estirarse */
+.imagen-preview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 
+              0px 5px 8px 0px rgba(0,0,0,0.14);
+}

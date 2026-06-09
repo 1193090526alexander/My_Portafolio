@@ -1,8 +1,7 @@
-package com.company.inventory.Inventory.api.controller.category;
+package com.company.inventory.Inventory.api.controller.product;
 
 
 import com.company.inventory.Inventory.api.model.ProductEntity;
-import com.company.inventory.Inventory.api.response.category.CategoryResposeRest;
 import com.company.inventory.Inventory.api.response.product.ProductoResponseRest;
 import com.company.inventory.Inventory.api.services.product.IProductService;
 import com.company.inventory.Inventory.api.util.Util;
@@ -12,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
 public class ProductRestController {
