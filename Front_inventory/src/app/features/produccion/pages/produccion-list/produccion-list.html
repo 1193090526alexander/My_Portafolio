@@ -14,9 +14,17 @@
         (keyup)="buscarProduct($event)">
     </mat-form-field>
 
+<div class="botones">
     <button mat-raised-button color="primary" (click)="openProdcutDialog()">
     Agregar prodcuto
   </button>
+
+  <button mat-raised-button class="excel-button" (click)="exportExcel()">
+    <mat-icon class="excelicon">cloud_upload</mat-icon>
+    Exportar a Excel
+  </button>
+</div>
+
 
   </div>
 
@@ -76,13 +84,13 @@
           
           <button mat-icon-button color="primary"
             (click)="edit(product.id, product.name, product.category, product.price, product.quantity, product.picture )">
-            <mat-icon>edit</mat-icon>
+            <mat-icon class="icon">edit</mat-icon>
           </button>
         @if (isAdmin) {
           <button mat-icon-button color="primary"
           (click)="delete(product.id)"
           >
-            <mat-icon>delete</mat-icon>
+            <mat-icon class="icon">delete</mat-icon>
           </button>
         }
         </td>
