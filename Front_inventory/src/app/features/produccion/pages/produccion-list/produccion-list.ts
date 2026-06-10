@@ -8,6 +8,7 @@ import { ProductoService } from '../../../../core/services/product/product';
 import { ProduccionCreate } from '../produccion-create/produccion-create';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { Util } from '../../../../core/services/util/util';
 
 
 @Component({
@@ -18,12 +19,17 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ProduccionList implements OnInit{
 
+  isAdmin: any;
+
   private productoservice =  inject(ProductoService);
   private dialog = inject(MatDialog);
-  constructor(private snackBar: MatSnackBar){}
+  constructor(private snackBar: MatSnackBar,
+    private util: Util
+  ){}
   
   ngOnInit(): void {
     this.getProduct();
+    this.isAdmin =  this.util.isAdmin();
   }
 
   displayedColumns: string[] = ['id', 'name', 'price', 'category', 'picture', 'quantity', 'acciones'];

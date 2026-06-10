@@ -8,6 +8,7 @@ import { MaterialModule } from '../../../../shared/material/material';
 import { CategoriaCreate } from '../categoria-create/categoria-create';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
+import { Util } from '../../../../core/services/util/util';
 
 @Component({
   selector: 'app-categoria-list',
@@ -17,15 +18,21 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class CategoriaList implements OnInit {
 
+  isAdmin: any;
+
+
   private categoriaService = inject(CategoriaService);
   private dialog = inject(MatDialog);
-  constructor(private snackBar: MatSnackBar){}
+  constructor(private snackBar: MatSnackBar,
+              private util: Util
+  ){}
 
   displayedColumns: string[] = ['idcategory', 'name', 'description', 'acciones'];
   dataSource = new MatTableDataSource<CategoriaElement>();
 
   ngOnInit(): void {
     this.getCategorias();
+    this.isAdmin =  this.util.isAdmin();
   }
 
   @ViewChild(MatPaginator)
