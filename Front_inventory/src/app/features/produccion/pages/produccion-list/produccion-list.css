@@ -41,7 +41,7 @@ th {
   padding: 12px;
 }
 
-button mat-icon {
+.icon {
   font-size: 20px;
   color: lightcoral;
 }
@@ -60,4 +60,16 @@ button mat-icon {
   .tabla-contenedor {
     overflow-x: auto;
   }
+}
+
+.excel-button {
+  background-color:white !important;
+  color: #217346  !important;
+}
+.excelicon {
+  color: #217346
+}
+.botones {
+  display: flex;
+  gap: 10px; /* espacio entre botones */
 }
