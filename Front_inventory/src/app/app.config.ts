@@ -1,9 +1,15 @@
-import { APP_INITIALIZER, ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import {
+  APP_INITIALIZER,
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { KeycloakService } from 'keycloak-angular';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 // 1. Creamos la función de inicialización manual (esta no falla por versiones de tipado)
 export function initializeKeycloak(keycloak: KeycloakService) {
@@ -12,15 +18,18 @@ export function initializeKeycloak(keycloak: KeycloakService) {
       config: {
         url: 'http://localhost:8082/',
         realm: 'inventory',
-        clientId: 'angular-client'
+        clientId: 'angular-client',
       },
       initOptions: {
         onLoad: 'login-required',
         flow: 'standard',
-        silentCheckSsoRedirectUri: typeof window !== 'undefined' ? `${window.location.origin}/silent-check-sso.html` : undefined
+        silentCheckSsoRedirectUri:
+          typeof window !== 'undefined'
+            ? `${window.location.origin}/silent-check-sso.html`
+            : undefined,
       },
       enableBearerInterceptor: true,
-      bearerPrefix: 'Bearer'
+      bearerPrefix: 'Bearer',
     });
 }
 
@@ -40,7 +49,8 @@ export const appConfig: ApplicationConfig = {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
-      deps: [KeycloakService]
-    }
-  ]
+      deps: [KeycloakService],
+    },
+    provideCharts(withDefaultRegisterables()),
+  ],
 };
