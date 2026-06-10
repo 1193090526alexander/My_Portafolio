@@ -13,10 +13,17 @@
         placeholder="Busque por nombre o id de categoría" #input
         (keyup)="buscarCategoria($event)">
     </mat-form-field>
-
-    <button mat-raised-button color="primary" (click)="openCategoryDialog ()">
+<div class="botones">
+  <button class="agregar" mat-raised-button color="primary" (click)="openCategoryDialog()">
     Agregar Categoría
   </button>
+
+  <button mat-raised-button class="excel-button" (click)="exportExcel()">
+    <mat-icon class="excelicon">cloud_upload</mat-icon>
+    Exportar a Excel
+  </button>
+</div>
+
 
   </div>
 
@@ -52,12 +59,12 @@
           
           <button mat-icon-button color="primary" 
             (click)="edit(categoria.idcategory, categoria.name, categoria.description)">
-            <mat-icon>edit</mat-icon>
+            <mat-icon class="icon">edit</mat-icon>
           </button>
           @if (isAdmin) {
           <button mat-icon-button color="primary" 
           (click)="deleteCategoria(categoria.idcategory)">
-            <mat-icon>delete</mat-icon>
+            <mat-icon class="icon">delete</mat-icon>
           </button>
           }
         </td>
