@@ -43,4 +43,12 @@ getcategoriasByName(name: any){
     return this.http.get(endpoint);
 }
 
+exportCategories(){
+  const endpoint =  `${base_url}/categories/export/excel`
+    return this.http.get(endpoint,{
+      responseType: 'blob'
+    });
+  
+}
+
 }
